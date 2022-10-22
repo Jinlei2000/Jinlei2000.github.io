@@ -434,7 +434,7 @@ input::placeholder {
         width: 200px;
     }
 }
-    
+
 
 .c-search__input:focus,
 .c-search__input:active {
@@ -445,10 +445,6 @@ input::placeholder {
 .c-search__input:hover {
     --box-shadow-search: 0 0 0 2px var(--global-color-primary-light);
 }
-
-
-
-
 
 /*
     Component: Icon
@@ -523,6 +519,39 @@ input::placeholder {
     transition: all 0.3s cubic-bezier(0.785, 0.135, 0.150, 0.860);
     padding: 0 0.0625rem;
 }
+
+/*
+    Component: Grid
+    ---
+    Grid component
+*/
+
+.c-grid {
+    display: grid;
+    grid-template-columns: 18.5rem;
+    gap: 32px;
+    justify-content: center;
+
+}
+
+.c-grid__item {
+    justify-self: center;
+}
+
+@media (min-width: 696px) {
+    .c-grid {
+        gap: 32px 40px;
+        grid-template-columns: repeat(2, 18.5rem);
+    }
+}
+
+/*
+    Component: Card
+    ---
+    Card component
+*/
+
+
 
 
 /*------------------------------------*\
