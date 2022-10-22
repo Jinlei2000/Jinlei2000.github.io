@@ -42,6 +42,12 @@
     --global-html-backgroundColor: var(--global-color-neutral-light);
     --global-selection-backgroundColor: var(--global-color-primary);
 
+    /* borders */
+    --global-borderWidth: 1px;
+
+    /* boxshadow */
+    --global-input-focus-boxShadow: 0 0 0 3px var(--global-color-primary-light);
+
     /* Baseline settings */
     --global-baseline: 0.5rem;
 
@@ -329,9 +335,11 @@ input::placeholder {
 .c-app {
     min-height: 100vh;
     /* 328px = 20.5rem */
-    max-width: 20.5rem;
-    margin-right: auto;
-    margin-left: auto;
+    min-width: 20.5rem;
+    /* 632px = 39.5rem */
+    max-width: 39.5rem;
+    padding: var(--global-whitespace-md) var(--global-whitespace-md) 0;
+    margin: 0 auto;
 }
 
 /*
@@ -341,7 +349,6 @@ input::placeholder {
 */
 
 .c-header {
-    padding-top: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -349,12 +356,12 @@ input::placeholder {
 }
 
 .c-header__search {
-    display: flex;
+    /* display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     height: 1.5rem;
-    width: 1.5rem;
+    width: 1.5rem; */
 }
 
 /*
@@ -379,6 +386,69 @@ input::placeholder {
     height: 24px;
     fill: var(--global-color-primary);
 }
+
+/*
+    Component: Search
+    ---
+    Search component
+*/
+
+.c-search {
+    position: relative;
+}
+
+.c-search__icon {
+    position: absolute;
+    top: 4px;
+    right: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill: white !important;
+}
+
+.c-search__btn {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    border-radius: 50%;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: var(--global-color-primary);
+}
+
+
+.c-search__input {
+    border: var(--global-color-primary) solid var(--global-borderWidth);
+    border-radius: 15px;
+    padding-left: 8px;
+    height: 28px;
+    color: var(--global-color-neutral-dark);
+    font-size: 14px;
+    box-shadow: var(--box-shadow-search, 0);
+    width: 100px;
+}
+
+@media (min-width: 768px) {
+    .c-search__input {
+        width: 200px;
+    }
+}
+    
+
+.c-search__input:focus,
+.c-search__input:active {
+    outline: none;
+    --box-shadow-search: 0 0 0 2px var(--global-color-primary-light);
+}
+
+.c-search__input:hover {
+    --box-shadow-search: 0 0 0 2px var(--global-color-primary-light);
+}
+
+
+
+
 
 /*
     Component: Icon
@@ -416,74 +486,44 @@ input::placeholder {
     border-radius: 0.9375rem;
     height: 2rem;
     min-width: 18.5rem;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
-.c-toggle__item {
+.c-toggle__body input:checked+label {
+    --toggle-background-color: var(--global-color-primary);
+    --toggle-color: var(--global-color-neutral-light);
+    --toggle-font-weight: 600;
+}
+
+.c-toggle__body label:hover {
+    cursor: pointer;
+    --custom-option-borderColor: var(--global-color-primary);
+}
+
+.c-toggle__body input:focus+label,
+.c-toggle__body input:active+label {
+    --custom-option-borderColor: var(--global-color-primary);
+    --custom-option-boxShadow: var(--global-input-focus-boxShadow);
+}
+
+.c-toggle__body label {
+    font-size: 0.75rem;
+    font-weight: var(--toggle-font-weight, 500);
     display: flex;
     justify-content: center;
+    align-items: center;
     border-radius: 0.9375rem;
     height: 1.5rem;
     min-width: 6rem;
+    border: var(--global-borderWidth) solid var(--custom-option-borderColor, var(--global-color-neutral-light));
+    box-shadow: var(--custom-option-boxShadow, 0);
+    background-color: var(--toggle-background-color, var(--global-color-neutral-light));
+    color: var(--toggle-color, var(--global-color-neutral-dark));
+    /* easeInOutCirc */
+    transition: all 0.3s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+    padding: 0 0.0625rem;
 }
 
-/*
-    Component: Horizon
-    ---
-    Horizon with sun visualisation
-*/
-
-.c-horizon {
-    margin-bottom: 2.125rem;
-    /* 34px */
-}
-
-.c-horizon__line {
-    border-top: 1px solid var(--color-back);
-    display: flex;
-    justify-content: space-between;
-    padding-top: 0.5rem;
-}
-
-.c-horizon__time {
-    /* 12px */
-    font-size: 0.75rem;
-    /* 14px */
-    line-height: 0.875rem;
-}
-
-.c-horizon__sky {
-    position: relative;
-    height: 100%;
-}
-
-.c-horizon__sky-wrapper {
-    position: relative;
-    height: 200px;
-    overflow: hidden;
-
-    padding-top: 22px;
-    padding-right: 40px;
-}
-
-.c-horizon__sun {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    gap: 0.5rem;
-
-    transform: translateY(22px);
-}
-
-.c-horizon__sun::before {
-    content: attr(data-time);
-    /* 12px */
-    font-size: 0.75rem;
-    /* 14px */
-    line-height: 0.875rem;
-}
 
 /*------------------------------------*\
 #UTILITIES

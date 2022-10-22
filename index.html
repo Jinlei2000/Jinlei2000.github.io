@@ -70,43 +70,33 @@
           </h1>
         </div>
         <div class="c-header__search">
-          <svg class="c-icon c-icon-sm" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path
-              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-            />
-          </svg>
+          <div class="c-search">
+            <input class="c-search__input" type="search" id="search" />
+              <div class="c-search__btn">
+                <svg class="c-icon c-icon-sm c-search__icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                  <path d="M0 0h24v24H0V0z" fill="none" />
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  />
+                </svg>
+              </div>
+          </div>
         </div>
       </header>
       <section class="o-row">
         <section class="c-toggle">
           <div class="c-toggle__body">
             <div class="c-toggle__item">
-              <input class="o-hide-accessible c-option c-option--hidden" type="radio" name="radios" id="radio1" />
-              <label class="c-label c-label--option c-custom-option" for="radio1">
-                <span class="c-custom-option__fake-input c-custom-option__fake-input--radio">
-                  <span class="c-custom-option__symbol"></span>
-                </span>
-                ALL
-              </label>
+              <input class="o-hide-accessible" type="radio" name="radios" id="radio1" checked />
+              <label for="radio1">ALL</label>
             </div>
             <div class="c-toggle__item">
-              <input class="o-hide-accessible c-option c-option--hidden" type="radio" name="radios" id="radio2" />
-              <label class="c-label c-label--option c-custom-option" for="radio2">
-                <span class="c-custom-option__fake-input c-custom-option__fake-input--radio">
-                  <span class="c-custom-option__symbol"></span>
-                </span>
-                NEW
-              </label>
+              <input class="o-hide-accessible" type="radio" name="radios" id="radio2" />
+              <label for="radio2">NEW</label>
             </div>
             <div class="c-toggle__item">
-              <input class="o-hide-accessible c-option c-option--hidden" type="radio" name="radios" id="radio3" />
-              <label class="c-label c-label--option c-custom-option" for="radio3">
-                <span class="c-custom-option__fake-input c-custom-option__fake-input--radio">
-                  <span class="c-custom-option__symbol"></span>
-                </span>
-                POPULAR
-              </label>
+              <input class="o-hide-accessible" type="radio" name="radios" id="radio3" />
+              <label for="radio3">POPULAR</label>
             </div>
           </div>
         </section>
