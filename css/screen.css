@@ -3,10 +3,26 @@
 \*------------------------------------*/
 
 @font-face {
-    font-family: "WorkSans";
+    font-family: "Inter Web";
     font-weight: 400;
-    src: url("../fonts/WorkSans-Regular.ttf") format("trueType");
+    src: url("../fonts/Inter-Regular.woff2") format("woff2");
+    src: url("../fonts/Inter-Regular.woff") format("woff");
 }
+
+@font-face {
+    font-family: "Inter Web";
+    font-weight: 500;
+    src: url("../fonts/Inter-Medium.woff2") format("woff2");
+    src: url("../fonts/Inter-Medium.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Inter Web";
+    font-weight: 600;
+    src: url("../fonts/Inter-SemiBold.woff2") format("woff2");
+    src: url("../fonts/Inter-SemiBold.woff") format("woff");
+}
+
 
 /*------------------------------------*\
 #Variables
@@ -14,15 +30,36 @@
 
 :root {
     /* colors */
-    --color-light: hsla(208, 100%, 90%, 1);
-    --color-dark: hsla(208, 70%, 20%, 1);
+    --global-color-primary: #4056F4;
+    --global-color-primary-light: #8C99F8;
 
-    --color-front: var(--color-light);
-    --color-back: var(--color-dark);
-    /* opacity */
-    --global-opacity: 0.6;
+    --global-color-neutral-light: white;
+    --global-color-neutral-x-dark: #5D5D5D;
+    --global-color-neutral-dark: #0D0D0D;
 
-    /* transitions */
+    /* global page settings */
+    --global-html-color: var(--global-color-neutral-dark);
+    --global-html-backgroundColor: var(--global-color-neutral-light);
+    --global-selection-backgroundColor: var(--global-color-primary);
+
+    /* Baseline settings */
+    --global-baseline: 0.5rem;
+
+    --global-whitespace: calc(var(--global-baseline) * 3);
+    /* = 24px */
+
+    --global-whitespace-xs: calc(var(--global-baseline) / 2);
+    /* = 4px */
+    --global-whitespace-sm: calc(var(--global-baseline) * 1);
+    /*  = 8px */
+    --global-whitespace-md: calc(var(--global-baseline) * 2);
+    /*  = 16px */
+    --global-whitespace-lg: calc(var(--global-baseline) * 4);
+    /*  = 32px */
+    --global-whitespace-xl: calc(var(--global-whitespace) * 2);
+    /*  = 48px */
+    --global-whitespace-xxl: calc(var(--global-whitespace) * 3);
+    /*  = 72px */
 }
 
 /*------------------------------------*\
@@ -38,13 +75,12 @@
 html {
     font-size: 16px;
     line-height: 1.5;
-    font-family: 'WorkSans', Helvetica, sans-serif;
+    font-family: 'Inter Web', Helvetica, sans-serif;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: "zero"1;
-    background-color: var(--color-front);
-    color: var(--color-back);
+    background-color: var(--global-html-backgroundColor);
+    color: var(--global-html-color);
 }
 
 *,
@@ -61,14 +97,14 @@ html {
 */
 
 ::-moz-selection {
-    background: red;
-    color: white;
+    background: var(--global-selection-backgroundColor);
+    color: var(--global-color-neutral-light);
     text-shadow: none;
 }
 
 ::selection {
-    background: var(--global-color-back);
-    color: white;
+    background: var(--global-selection-backgroundColor);
+    color: var(--global-color-neutral-light);
     text-shadow: none;
 }
 
@@ -181,12 +217,12 @@ a {
 
 a:visited,
 a:active {
-    color: red;
+    color: var(--global-color-primary);
 }
 
 a:hover,
 a:focus {
-    color: red;
+    color: var(--global-color-primary);
 }
 
 label,
@@ -205,6 +241,23 @@ input::placeholder {
 /*------------------------------------*\
 #OBJECTS
 \*------------------------------------*/
+
+/*
+    Objects: Row
+    ---
+    Creates a horizontal row that stretches the viewport and adds padding around children
+*/
+
+.o-row {
+    position: relative;
+    padding: 0 var(--global-whitespace-md);
+}
+
+@media (min-width: 768px) {
+    .o-row {
+        padding: 0;
+    }
+}
 
 /*
     Object: Button reset
@@ -236,6 +289,17 @@ input::placeholder {
 }
 
 /*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+*/
+
+.o-list {
+    list-style: none;
+    padding: 0;
+}
+
+/*
     Object: Hide accessible
     ---
     Accessibly hide any element
@@ -264,22 +328,33 @@ input::placeholder {
 
 .c-app {
     min-height: 100vh;
-    /* 1rem = body font size = 16px */
-    padding: 2rem 2rem 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    /* 400px = 25rem */
-    max-width: 25rem;
+    /* 328px = 20.5rem */
+    max-width: 20.5rem;
     margin-right: auto;
     margin-left: auto;
 }
 
-.c-app__summary {
-    /* 28px */
-    font-size: 1.75rem;
-    /* 40px */
-    line-height: 2.5rem;
+/*
+    Component: Header
+    ---
+    Header component
+*/
+
+.c-header {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.c-header__search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
 /*
@@ -289,29 +364,66 @@ input::placeholder {
 */
 
 .c-logo {
-    font-size: 1rem;
-    line-height: 1rem;
-    font-weight: 400;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: auto;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--global-color-primary);
+    line-height: normal;
+    margin: 0rem;
+}
+
+.c-logo__symbol {
+    width: 24px;
+    height: 24px;
+    fill: var(--global-color-primary);
 }
 
 /*
-    Component: Sun
+    Component: Icon
     ---
-    The sun
+    Icon component
 */
 
-.c-sun {
-    width: 22px;
-    height: 22px;
-    fill: var(--color-back);
+.c-icon {
+    width: 1rem;
+    height: 1rem;
+    fill: var(--global-color-primary);
 }
 
-.c-logo .c-sun {
+.c-icon-lg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
 
+/*
+    Component: Toggle
+    ---
+    Toggle component
+*/
+
+.c-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.c-toggle__body {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 0.9375rem;
+    height: 2rem;
+    min-width: 18.5rem;
+}
+
+.c-toggle__item {
+    display: flex;
+    justify-content: center;
+    border-radius: 0.9375rem;
+    height: 1.5rem;
+    min-width: 6rem;
 }
 
 /*
