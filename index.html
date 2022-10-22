@@ -6,8 +6,8 @@
     <title>Oncolor</title>
     <meta name="description" content="Discover the newest hand-picked color palettes" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="msapplication-TileColor" content="#cce7ff" />
-    <meta name="theme-color" content="#44c8f5" />
+    <!-- <meta name="msapplication-TileColor" content="#cce7ff" />
+    <meta name="theme-color" content="#44c8f5" /> -->
 
     <link rel="icon" href="favicon.svg" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -21,7 +21,142 @@
 
   <body>
     <main class="c-app">
-      
+      <header class="c-header">
+        <div class="c-header__logo">
+          <h1 class="c-logo__title">
+            <svg class="c-logo__symbol" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+              <defs>
+                <clipPath id="a"><rect width="32" height="32" fill="none" /></clipPath>
+                <clipPath id="c"><rect width="32" height="32" /></clipPath>
+              </defs>
+              <g id="b" clip-path="url(#c)">
+                <g clip-path="url(#a)">
+                  <rect width="32" height="32" fill="none" />
+                  <g transform="translate(0 -0.001)">
+                    <g transform="translate(0 0)">
+                      <g transform="translate(0 0)">
+                        <path
+                          d="M792.291,1119.088a18.168,18.168,0,0,0-3.531,5.42s-2.461-4.066-4.6-5.456c-3.388-2.176-4.851-2.211-4.851-2.211v1.712a10.03,10.03,0,0,1,4.173,1.641,30.2,30.2,0,0,1,5.279,6.6s2.1-4.671,4.136-6.276a8.1,8.1,0,0,1,5.313-1.962v-1.712A10.715,10.715,0,0,0,792.291,1119.088Z"
+                          transform="translate(-766.113 -1097.151)"
+                          fill="#163e9c"
+                        />
+                        <path
+                          d="M342.549,829.259a18.449,18.449,0,0,0-6.349-1.534s3.1-3.6,3.745-6.062c1-3.852.535-5.243.535-5.243l-1.641.571a10.183,10.183,0,0,1-.214,4.423,29.722,29.722,0,0,1-4.637,7.061s5.206.464,7.382,1.819a7.909,7.909,0,0,1,3.638,4.28L346.65,834A11.349,11.349,0,0,0,342.549,829.259Z"
+                          transform="translate(-329.353 -802.51)"
+                          fill="#163e9c"
+                        />
+                        <path
+                          d="M103.581,511.76c4.03-.321,5.206-1.213,5.206-1.213l-1.07-1.355A10.254,10.254,0,0,1,103.4,510.4a31,31,0,0,1-8.309-2s1.248,4.992.642,7.453a7.825,7.825,0,0,1-2.96,4.814l1.07,1.355a10.833,10.833,0,0,0,3.243-5.386,18.322,18.322,0,0,0-.606-6.419S100.977,511.974,103.581,511.76Z"
+                          transform="translate(-92.775 -500.417)"
+                          fill="#163e9c"
+                        />
+                        <path
+                          d="M375.486,97.34a18.74,18.74,0,0,0,5.955-2.639s-.214,4.708.856,7.061c1.641,3.638,2.853,4.457,2.853,4.457l.963-1.427a9.8,9.8,0,0,1-2.6-3.638,29.179,29.179,0,0,1-.785-8.381s-4.387,2.782-6.954,3.032a8.024,8.024,0,0,1-5.563-1.177l-.963,1.462A11.67,11.67,0,0,0,375.486,97.34Z"
+                          transform="translate(-363.931 -92.774)"
+                          fill="#163e9c"
+                        />
+                        <path
+                          d="M1118.723,176.262a9.851,9.851,0,0,1,2.64-3.6,31.488,31.488,0,0,1,7.81-3.46s-4.1-3.174-5.172-5.493a7.891,7.891,0,0,1-.678-5.563l-1.712-.428a10.627,10.627,0,0,0,.785,6.205,18.8,18.8,0,0,0,4.458,4.708s-4.564,1.355-6.492,3.1c-2.96,2.711-3.353,4.1-3.353,4.1Z"
+                          transform="translate(-1097.326 -156.468)"
+                          fill="#163e9c"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+            Oncolor
+          </h1>
+        </div>
+        <div class="c-header__search">
+          <input class="o-hide-accessible c-option c-option--hidden" type="checkbox" id="checkbox1" checked />
+          <label class="c-label c-label--option c-custom-option" for="checkbox1">
+            <span class="c-custom-option__fake-input c-custom-option__fake-input--checkbox">
+              <div class="c-custom-option__search">
+                <svg class="c-icon c-icon-sm" xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                  <path
+                    d="M39.8 41.95 26.65 28.8q-1.5 1.3-3.5 2.025-2 .725-4.25.725-5.4 0-9.15-3.75T6 18.75q0-5.3 3.75-9.05 3.75-3.75 9.1-3.75 5.3 0 9.025 3.75 3.725 3.75 3.725 9.05 0 2.15-.7 4.15-.7 2-2.1 3.75L42 39.75Zm-20.95-13.4q4.05 0 6.9-2.875Q28.6 22.8 28.6 18.75t-2.85-6.925Q22.9 8.95 18.85 8.95q-4.1 0-6.975 2.875T9 18.75q0 4.05 2.875 6.925t6.975 2.875Z"
+                  />
+                </svg>
+              </div>
+            </span>
+          </label>
+        </div>
+      </header>
+      <section class="c-toggle">
+        <div class="c-toggle__body">
+          <ul class="o-list c-toggle__list">
+            <li class="c-toggle__item">
+              <input class="o-hide-accessible c-option c-option--hidden" type="radio" name="radios" id="radio1" />
+              <label class="c-label c-label--option c-custom-option" for="radio1">
+                <span class="c-custom-option__fake-input c-custom-option__fake-input--radio">
+                  <span class="c-custom-option__symbol"></span>
+                </span>
+                ALL
+              </label>
+            </li>
+            <li class="c-toggle__item">
+              <input class="o-hide-accessible c-option c-option--hidden" type="radio" name="radios" id="radio2" />
+              <label class="c-label c-label--option c-custom-option" for="radio2">
+                <span class="c-custom-option__fake-input c-custom-option__fake-input--radio">
+                  <span class="c-custom-option__symbol"></span>
+                </span>
+                NEW
+              </label>
+            </li>
+            <li class="c-toggle__item">
+              <input class="o-hide-accessible c-option c-option--hidden" type="radio" name="radios" id="radio3" />
+              <label class="c-label c-label--option c-custom-option" for="radio3">
+                <span class="c-custom-option__fake-input c-custom-option__fake-input--radio">
+                  <span class="c-custom-option__symbol"></span>
+                </span>
+                POPULAR
+              </label>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="js-cards">
+        <article class="c-card">
+          <input class="o-hide-accessible c-option c-option--hidden" type="checkbox" id="card" />
+          <label class="c-label c-label--option c-custom-toggle" for="card">
+            <span class="c-custom-toggle__fake-input"> </span>
+          </label>
+          <div class="c-card__heart">
+            <input class="o-hide-accessible c-option c-option--hidden" type="checkbox" id="heart" />
+            <label class="c-label c-label--option c-custom-toggle" for="heart">
+              <svg class="c-icon c-icon-md" xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                <path
+                  d="m24 41.95-2.05-1.85q-5.3-4.85-8.75-8.375-3.45-3.525-5.5-6.3T4.825 20.4Q4 18.15 4 15.85q0-4.5 3.025-7.525Q10.05 5.3 14.5 5.3q2.85 0 5.275 1.35Q22.2 8 24 10.55q2.1-2.7 4.45-3.975T33.5 5.3q4.45 0 7.475 3.025Q44 11.35 44 15.85q0 2.3-.825 4.55T40.3 25.425q-2.05 2.775-5.5 6.3T26.05 40.1ZM24 38q5.05-4.65 8.325-7.975 3.275-3.325 5.2-5.825 1.925-2.5 2.7-4.45.775-1.95.775-3.9 0-3.3-2.1-5.425T33.5 8.3q-2.55 0-4.75 1.575T25.2 14.3h-2.45q-1.3-2.8-3.5-4.4-2.2-1.6-4.75-1.6-3.3 0-5.4 2.125Q7 12.55 7 15.85q0 1.95.775 3.925.775 1.975 2.7 4.5Q12.4 26.8 15.7 30.1 19 33.4 24 38Zm0-14.85Z"
+                />
+              </svg>
+            </label>
+          </div>
+          <div class="c-card__body">
+            <div class="c-card__image"><img src="http://www.colourlovers.com/paletteImg/69D2E7/A7DBD8/E0E4CC/F38630/FA6900/Giant_Goldfish.png" alt="color palette (hier naam van color palette)" /></div>
+            <h1 class="c-card__title">Giant Goldfish</h1>
+            <p class="c-card__username">Miss_Anthropy</p>
+            <div class="c-card__rating">
+              <svg class="c-icon c-icon-sm" xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                <path d="m11.65 44 3.25-14.05L4 20.5l14.4-1.25L24 6l5.6 13.25L44 20.5l-10.9 9.45L36.35 44 24 36.55Z" />
+              </svg>
+              <svg class="c-icon c-icon-sm" xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                <path d="m11.65 44 3.25-14.05L4 20.5l14.4-1.25L24 6l5.6 13.25L44 20.5l-10.9 9.45L36.35 44 24 36.55Z" />
+              </svg>
+              <svg class="c-icon c-icon-sm" xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                <path d="M24 13.7v19.35l7.85 4.75-2.1-8.9 6.9-6-9.1-.8ZM11.65 44l3.25-14.05L4 20.5l14.4-1.25L24 6l5.6 13.25L44 20.5l-10.9 9.45L36.35 44 24 36.55Z" />
+              </svg>
+              <svg class="c-icon c-icon-sm" xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                <path d="m16.15 37.75 7.85-4.7 7.85 4.75-2.1-8.9 6.9-6-9.1-.8L24 13.7l-3.55 8.35-9.1.8 6.9 6ZM11.65 44l3.25-14.05L4 20.5l14.4-1.25L24 6l5.6 13.25L44 20.5l-10.9 9.45L36.35 44 24 36.55ZM24 26.25Z" />
+              </svg>
+              <svg class="c-icon c-icon-sm" xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                <path d="m16.15 37.75 7.85-4.7 7.85 4.75-2.1-8.9 6.9-6-9.1-.8L24 13.7l-3.55 8.35-9.1.8 6.9 6ZM11.65 44l3.25-14.05L4 20.5l14.4-1.25L24 6l5.6 13.25L44 20.5l-10.9 9.45L36.35 44 24 36.55ZM24 26.25Z" />
+              </svg>
+            </div>
+          </div>
+        </article>
+      </section>
     </main>
   </body>
 </html>
