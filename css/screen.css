@@ -639,17 +639,20 @@ input::placeholder {
 .c-card input:checked+.c-label__card {
     --borderColor-card: var(--global-color-primary);
     --boxShadow-card: var(--global-input-focus-boxShadow);
+
 }
 
 .c-card input:hover+.c-label__card {
     cursor: pointer;
     --borderColor-card: var(--global-color-primary);
     --boxShadow-card: var(--global-input-focus-boxShadow);
+
 }
 
 .c-card input:focus+.c-label__card, .c-card input:active+.c-label__card {
     --borderColor-card: var(--global-color-primary);
     --boxShadow-card: var(--global-input-focus-boxShadow);
+
 }
 
 .c-card .c-label__card {
@@ -737,6 +740,13 @@ input::placeholder {
 #UTILITIES
 \*------------------------------------*/
 
+.u-animation-fill {
+    animation: heart-color-fill 1s ease;
+}
+
+.u-animation-outlined {
+    animation: heart-color-out 1s ease;
+}
 
 /*------------------------------------*\
 #STATES
@@ -844,5 +854,29 @@ input::placeholder {
 @keyframes spin {
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes heart-color-fill {
+    from {
+        fill: var(--global-color-neutral-x-light);
+        transform: scale(1.5);
+    }
+
+    to {
+        fill: var(--global-color-primary);
+        transform: scale(1);
+    }
+}
+
+@keyframes heart-color-out {
+    from {
+        stroke: var(--global-color-primary);
+        transform: scale(1);
+    }
+
+    to {
+        stroke: var(--global-color-primary-light);
+        transform: scale(0.8);
     }
 }
