@@ -34,12 +34,13 @@
     --global-color-primary-light: #8C99F8;
 
     --global-color-neutral-light: white;
+    --global-color-neutral-x-light: #FCFDFE;
     --global-color-neutral-x-dark: #5D5D5D;
     --global-color-neutral-dark: #0D0D0D;
 
     /* global page settings */
     --global-html-color: var(--global-color-neutral-dark);
-    --global-html-backgroundColor: var(--global-color-neutral-light);
+    --global-html-backgroundColor: var(--global-color-neutral-x-light);
     --global-selection-backgroundColor: var(--global-color-primary);
 
     /* borders */
@@ -524,6 +525,15 @@ input::placeholder {
     fill: var(--global-color-primary);
 }
 
+.c-icon-outlined {
+    fill: var(--global-color-primary-light);
+}
+
+.c-icon-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
 .c-icon-lg {
     width: 1.5rem;
     height: 1.5rem;
@@ -617,21 +627,116 @@ input::placeholder {
     Card component
 */
 
+.c-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.9375rem;
+    height: 15.375rem;
+    width: 18.5rem;
+}
 
+.c-card input:checked+.c-label__card {
+    --borderColor-card: var(--global-color-primary);
+    --boxShadow-card: var(--global-input-focus-boxShadow);
+}
 
+.c-card input:hover+.c-label__card {
+    cursor: pointer;
+    --borderColor-card: var(--global-color-primary);
+    --boxShadow-card: var(--global-input-focus-boxShadow);
+}
+
+.c-card input:focus+.c-label__card, .c-card input:active+.c-label__card {
+    --borderColor-card: var(--global-color-primary);
+    --boxShadow-card: var(--global-input-focus-boxShadow);
+}
+
+.c-card .c-label__card {
+    position: absolute;
+    border: var(--global-borderWidth) solid var(--borderColor-card, var(--global-color-neutral-light));
+    border-radius: 0.9375rem;
+    height: 15.375rem;
+    width: 18.5rem;
+    box-shadow: var(--boxShadow-card, 0 7px 30px -8px rgba(0, 0, 0, 0.16));
+}
+
+.c-card__heart {
+    margin-left: 193px;
+    margin-top: 12px;
+}
+
+.c-card__heart input:checked+.c-label__heart {
+    --borderColor-heart: var(--global-color-primary);
+    --boxShadow-heart: var(--global-input-focus-boxShadow);
+}
+
+.c-card__heart input:hover+.c-label__heart {
+    cursor: pointer;
+    --borderColor-heart: var(--global-color-primary);
+    --boxShadow-heart: var(--global-input-focus-boxShadow);
+}
+
+.c-card__heart input:focus+.c-label__heart, .c-card__heart input:active+.c-label__heart {
+    --borderColor-heart: var(--global-color-primary);
+    --boxShadow-heart: var(--global-input-focus-boxShadow);
+}
+
+.c-card__heart .c-label__heart {
+    position: absolute;
+    z-index: 10;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--borderColor-heart, none);
+    background-color: var(--global-color-neutral-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--boxShadow-heart, none);
+}
+
+.c-card__image {
+    border-radius: 0.9375rem;
+    height: 10.625rem;
+    width: 18rem;
+    margin-top: -8px;
+}
+
+.c-card__subinfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.875rem;
+}
+
+.c-card__title {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: 0px;
+    margin-left: 4px;
+}
+
+.c-card__username {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 0.9375rem;
+    margin-left: 4px;
+    margin-bottom: 0;
+
+}
+
+.c-card__rating {
+    display: flex;
+    gap: 2px;
+}
 
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
 
-/*
-    Utilities: Mute
-    Mute with opacity
-*/
-
-.u-muted {
-    opacity: var(--global-opacity);
-}
 
 /*------------------------------------*\
 #STATES
@@ -727,5 +832,17 @@ input::placeholder {
     h2,
     h3 {
         page-break-after: avoid;
+    }
+}
+
+/*
+    Keyframes
+    ---
+    Animations
+*/
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
     }
 }
