@@ -318,7 +318,7 @@ input::placeholder {
     height: 1px;
     padding: 0;
     margin: -1px;
-    overflow: hidden;   
+    overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
 }
@@ -740,28 +740,19 @@ input::placeholder {
 #UTILITIES
 \*------------------------------------*/
 
-.u-animation-fill {
-    animation: heart-color-fill 1s ease;
-}
 
-.u-animation-outlined {
-    animation: heart-color-out 1s ease;
-}
 
 /*------------------------------------*\
 #STATES
 \*------------------------------------*/
 
-/*
-    Change the theme using CSS vars.
-*/
-
-.is-night {
-    --color-front: var(--color-dark);
-    --color-back: var(--color-light);
+.is-animation-fill {
+    animation: heart-color-fill .5s ease;
 }
 
-/* Night version: just switch the light and dark vars */
+.is-animation-outlined {
+    animation: heart-color-out .5s ease;
+}
 
 /*------------------------------------*\
 #MEDIA
