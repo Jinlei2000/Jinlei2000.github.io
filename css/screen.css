@@ -428,6 +428,7 @@ input::placeholder {
     font-size: 0.75rem;
     color: var(--global-color-neutral-dark);
     right: 0;
+    transition: all 0.4s ease-in-out;
 }
 
 .c-search__btn {
@@ -444,10 +445,11 @@ input::placeholder {
     position: relative;
     border-radius: 50%;
     z-index: 20;
+    transition: all 0.5s ease-in-out;
 }
 
 .c-header__search .c-search:focus+.c-search__btn, .c-header__search .c-search:active+.c-search__btn {
-    transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in-out;
     background-color: var(--global-color-primary);
 }
 
