@@ -326,6 +326,10 @@ input::placeholder {
     margin: 0 auto;
 }
 
+.c-app-detail {
+    padding: var(--global-whitespace) var(--global-whitespace) 0;
+}
+
 @media (min-width: 768px) {
     .c-app {
         padding: var(--global-whitespace) 0 0;
@@ -345,9 +349,32 @@ input::placeholder {
     margin-bottom: 2rem;
 }
 
+.c-header-detail {
+    display: block;
+    margin-bottom: 0;
+    height: 24px;
+}
+
 .c-header__search {
     position: relative;
 }
+
+.c-header__back {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.c-header__title {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 28px;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+    line-height: 20px;
+}
+
 
 /*
     Component: Logo
@@ -476,15 +503,14 @@ input::placeholder {
     height: 1rem;
 }
 
-.c-icon-lg {
-    width: 1.5rem;
-    height: 1.5rem;
+.c-icon-dark {
+    fill: var(--global-color-neutral-dark);
 }
 
 @media (min-width: 768px) {
     .c-icon-search {
-        width: 2rem;
-        height: 2rem;
+        width: 1.5rem;
+        height: 1.5rem;
     }
 }
 
@@ -507,7 +533,7 @@ input::placeholder {
     border-radius: 0.9375rem;
     height: 2rem;
     width: 18.5rem;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 3px 6px -2px rgba(0, 0, 0, 0.16);
 }
 
 .c-toggle__body input:checked+label {
@@ -554,12 +580,14 @@ input::placeholder {
     .c-toggle__body {
         height: 2.5rem;
         width: 22.5rem;
+        justify-content: space-around;
     }
 
     .c-toggle__body label {
         font-size: 0.875rem;
         height: 2rem;
         width: 7rem;
+
     }
 }
 
