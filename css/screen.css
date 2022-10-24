@@ -250,23 +250,6 @@ input::placeholder {
 \*------------------------------------*/
 
 /*
-    Objects: Row
-    ---
-    Creates a horizontal row that stretches the viewport and adds padding around children
-*/
-
-.o-row {
-    position: relative;
-    padding: 0 var(--global-whitespace-md);
-}
-
-@media (min-width: 768px) {
-    .o-row {
-        padding: 0;
-    }
-}
-
-/*
     Object: Button reset
     ---
     Small button reset object
@@ -343,6 +326,12 @@ input::placeholder {
     margin: 0 auto;
 }
 
+@media (min-width: 768px) {
+    .c-app {
+        padding: var(--global-whitespace) 0 0;
+    }
+}
+
 /*
     Component: Header
     ---
@@ -381,6 +370,17 @@ input::placeholder {
     width: 24px;
     height: 24px;
     fill: var(--global-color-primary);
+}
+
+@media (min-width: 768px) {
+    .c-logo {
+        font-size: 1.8125rem;
+    }
+
+    .c-logo__symbol {
+        width: 2rem;
+        height: 2rem;
+    }
 }
 
 /*
@@ -436,6 +436,25 @@ input::placeholder {
     padding-right: 24px;
 }
 
+@media (min-width: 768px) {
+    .c-search {
+        font-size: 0.875rem;
+        width: var(--global-whitespace-lg);
+        height: var(--global-whitespace-lg);
+    }
+
+    .c-search__btn {
+        line-height: var(--global-whitespace-lg);
+        height: var(--global-whitespace-lg);
+        width: var(--global-whitespace-lg);
+    }
+
+    .c-search:focus, .c-search:active {
+        width: 20vh;
+        padding-right: var(--global-whitespace-lg);
+    }
+}
+
 /*
     Component: Icon
     ---
@@ -462,6 +481,13 @@ input::placeholder {
     height: 1.5rem;
 }
 
+@media (min-width: 768px) {
+    .c-icon-search {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
 /*
     Component: Toggle
     ---
@@ -480,7 +506,7 @@ input::placeholder {
     align-items: center;
     border-radius: 0.9375rem;
     height: 2rem;
-    min-width: 18.5rem;
+    width: 18.5rem;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
@@ -488,6 +514,7 @@ input::placeholder {
     --toggle-background-color: var(--global-color-primary);
     --toggle-color: var(--global-color-neutral-light);
     --toggle-font-weight: 600;
+    position: relative;
 }
 
 .c-toggle__body label:hover {
@@ -509,7 +536,7 @@ input::placeholder {
     align-items: center;
     border-radius: 0.9375rem;
     height: 1.5rem;
-    min-width: 6rem;
+    width: 6rem;
     border: var(--global-borderWidth) solid var(--custom-option-borderColor, var(--global-color-neutral-light));
     box-shadow: var(--custom-option-boxShadow, 0);
     background-color: var(--toggle-background-color, var(--global-color-neutral-light));
@@ -517,6 +544,23 @@ input::placeholder {
     /* easeInOutCirc */
     transition: all 0.3s cubic-bezier(0.785, 0.135, 0.150, 0.860);
     padding: 0.0625rem;
+}
+
+@media (min-width: 768px) {
+    .c-toggle {
+        margin-bottom: 2rem;
+    }
+
+    .c-toggle__body {
+        height: 2.5rem;
+        width: 22.5rem;
+    }
+
+    .c-toggle__body label {
+        font-size: 0.875rem;
+        height: 2rem;
+        width: 7rem;
+    }
 }
 
 /*
@@ -562,7 +606,6 @@ input::placeholder {
 .c-card input:checked+.c-label__card {
     --borderColor-card: var(--global-color-primary);
     --boxShadow-card: var(--global-input-focus-boxShadow);
-
 }
 
 .c-card input:hover+.c-label__card {
@@ -658,6 +701,26 @@ input::placeholder {
     display: flex;
     gap: 2px;
 }
+
+@media (min-width: 768px) {
+    .c-card {
+        height: 15.5rem;
+    }
+
+    .c-card .c-label__card {
+        height: 15.5rem;
+    }
+
+    .c-card__title {
+        font-size: 1.25rem;
+    }
+
+    .c-card__username {
+        font-size: 0.875rem;
+    }
+}
+
+
 
 /*------------------------------------*\
 #UTILITIES
