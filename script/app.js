@@ -45,7 +45,12 @@ const listeners = function () {
 
 const init = function () {
   console.log('App initialized');
-  listeners();
+  if (document.querySelector('.js-index-page')) {
+    console.log('Index page');
+    listeners();
+  }else if (document.querySelector('.js-detail-page')) {
+    console.log('Detail page');
+  }
 };
 
 document.addEventListener('DOMContentLoaded', init);
