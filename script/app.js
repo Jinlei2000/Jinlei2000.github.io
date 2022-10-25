@@ -1,3 +1,4 @@
+'use strict';
 const animationHeart = function (index) {
   // console.log('Heart is clicked');
   const elementHeartIcon = document.querySelectorAll('.js-heart-icon')[index];
@@ -51,7 +52,7 @@ const showColors = function () {
   }
 };
 
-const ShowBars = function () {
+const showBars = function () {
   const bars = document.querySelectorAll('.c-stats__item');
   for (let bar of bars) {
     const number = bar.querySelector('.c-stats__number').innerText;
@@ -61,11 +62,40 @@ const ShowBars = function () {
   }
 };
 
+const getColors = function (filter) {
+  if (filter == 'all') {
+    getAPI('http://www.colourlovers.com/api/palettes?format=json', showColors);
+  } else if (filter == 'new') {
+    getAPI('http://www.colourlovers.com/api/palettes/new?format=json', showColors);
+  } else if (filter == 'top') {
+    getAPI('http://www.colourlovers.com/api/palettes/top?format=json', showColors);
+  }
+};
+
+const getAPI = async function (urlEndpoint, callback) {
+  const json = await getData(urlEndpoint);
+  console.log(json);
+  callback(json);
+};
+
+const getData = async (urlEndpoint) => {
+  return fetch(urlEndpoint, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      'content-type': 'application/json',
+    },
+  })
+    .then((r) => r.json())
+    .catch((e) => console.error(e));
+};
+
 const init = function () {
   console.log('App initialized');
   // listeners();
-  showColors();
-  ShowBars();
+  // showColors();
+  // showBars();
+  getColors('all');
 };
 
 document.addEventListener('DOMContentLoaded', init);
