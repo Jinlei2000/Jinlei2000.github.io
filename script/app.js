@@ -43,14 +43,29 @@ const listeners = function () {
   }
 };
 
+const showColors = function () {
+  const colors = document.querySelectorAll('.c-color__item');
+  for (let color of colors) {
+    const hex = color.getAttribute('data-hex');
+    color.style.backgroundColor = hex;
+  }
+};
+
+const ShowBars = function () {
+  const bars = document.querySelectorAll('.c-stats__item');
+  for (let bar of bars) {
+    const number = bar.querySelector('.c-stats__number').innerText;
+    const totalNumber = bar.querySelector('.c-stats__totalnumber').innerText;
+    const percentage = (number / totalNumber) * 100;
+    bar.querySelector('.js-bar').style.width = percentage + '%';
+  }
+};
+
 const init = function () {
   console.log('App initialized');
-  if (document.querySelector('.js-index-page')) {
-    console.log('Index page');
-    listeners();
-  }else if (document.querySelector('.js-detail-page')) {
-    console.log('Detail page');
-  }
+  // listeners();
+  showColors();
+  ShowBars();
 };
 
 document.addEventListener('DOMContentLoaded', init);
