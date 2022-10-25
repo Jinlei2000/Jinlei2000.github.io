@@ -64,11 +64,11 @@ const showBars = function () {
 
 const getColors = function (filter) {
   if (filter == 'all') {
-    getAPI('http://www.colourlovers.com/api/palettes?format=json', showColors);
+    getAPI('https://www.colourlovers.com/api/palettes?format=json', showColors);
   } else if (filter == 'new') {
-    getAPI('http://www.colourlovers.com/api/palettes/new?format=json', showColors);
+    getAPI('https://www.colourlovers.com/api/palettes/new?format=json', showColors);
   } else if (filter == 'top') {
-    getAPI('http://www.colourlovers.com/api/palettes/top?format=json', showColors);
+    getAPI('https://www.colourlovers.com/api/palettes/top?format=json', showColors);
   }
 };
 
