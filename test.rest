@@ -1,0 +1,2 @@
+GET https://www.colourlovers.com/api/palettes?format=json
+Content-Type: application/json

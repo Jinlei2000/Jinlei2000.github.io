@@ -73,19 +73,13 @@ const getColors = function (filter) {
 };
 
 const getAPI = async function (urlEndpoint, callback) {
-  const json = await getData(urlEndpoint);
+  const json = await getData(urlEndpoint, { 'Content-Type': 'application/json' });
   console.log(json);
   callback(json);
 };
 
 const getData = async (urlEndpoint) => {
-  return fetch(urlEndpoint, {
-    method: 'GET',
-    mode: 'cors',
-    headers: {
-      'content-type': 'application/json',
-    },
-  })
+  return fetch(urlEndpoint)
     .then((r) => r.json())
     .catch((e) => console.error(e));
 };
