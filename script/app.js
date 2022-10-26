@@ -266,6 +266,7 @@ const getDetails = function (id) {
 
 const getAPI = async function (urlEndpoint, callback) {
   // const url = `http://api.allorigins.win/get?url=${encodeURIComponent(urlEndpoint)}`;
+  
   const url = urlEndpoint;
   console.log(url);
 
