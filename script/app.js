@@ -62,19 +62,39 @@ const showBars = function () {
   }
 };
 
+const showData = function (jsonColors) {
+  //string to json
+  // console.log(jsonColors);
+  for (let color of jsonColors) {
+    // console.log(color);
+    const id = color.id;
+    const imageUrl = color.imageUrl;
+    const title = color.title;
+    const userName = color.userName;
+    const numViews = color.numViews;
+    const numVotes = color.numVotes;
+    const numComments = color.numComments;
+    const numHearts = color.numHearts;
+    const date = color.dateCreated;
+    // console.log(id, imageUrl, title, userName, numViews, numVotes, numComments, numHearts, date);
+  }
+};
+
 const getColors = function (filter) {
   if (filter == 'all') {
-    getAPI('https://www.colourlovers.com/api/palettes?format=json', showColors);
+    getAPI('http://www.colourlovers.com/api/palettes?format=json', showData);
   } else if (filter == 'new') {
-    getAPI('https://www.colourlovers.com/api/palettes/new?format=json', showColors);
+    getAPI('http://www.colourlovers.com/api/palettes/new?format=json', showData);
   } else if (filter == 'top') {
-    getAPI('https://www.colourlovers.com/api/palettes/top?format=json', showColors);
+    getAPI('http://www.colourlovers.com/api/palettes/top?format=json', showData);
   }
 };
 
 const getAPI = async function (urlEndpoint, callback) {
-  const json = await getData(urlEndpoint, { 'Content-Type': 'application/json' });
-  console.log(json);
+  const url = `http://api.allorigins.win/get?url=${encodeURIComponent(urlEndpoint)}`;
+  const stringData = await getData(url);
+  const json = JSON.parse(stringData.contents);
+  // console.log(json);
   callback(json);
 };
 
@@ -86,7 +106,7 @@ const getData = async (urlEndpoint) => {
 
 const init = function () {
   console.log('App initialized');
-  // listeners();
+  listeners();
   // showColors();
   // showBars();
   getColors('all');
