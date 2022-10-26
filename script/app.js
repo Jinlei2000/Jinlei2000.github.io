@@ -61,11 +61,10 @@ const listeners = function () {
     card.addEventListener('change', function () {
       // console.log('card is selected');
       const id = card.getAttribute('data-colorid');
-      // console.log(id);
+      console.log(id);
       popup(true);
 
       getDetails(id);
-      listeners();
     });
   }
 
@@ -197,32 +196,32 @@ const showData = function (jsonColors) {
 
 const calculateTime = function (datetime) {
   console.log(datetime);
-  console.log(new Date() - new Date(datetime)/1000);
+  console.log(new Date() - new Date(datetime) / 1000);
 
-   let seconds = Math.floor((new Date() - new Date(datetime)) / 1000);
+  let seconds = Math.floor((new Date() - new Date(datetime)) / 1000);
 
-   let interval = seconds / 31536000;
+  let interval = seconds / 31536000;
 
-   if (interval > 1) {
-     return Math.floor(interval) + ' years ago';
-   }
-   interval = seconds / 2592000;
-   if (interval > 1) {
-     return Math.floor(interval) + ' months ago';
-   }
-   interval = seconds / 86400;
-   if (interval > 1) {
-     return Math.floor(interval) + ' days ago';
-   }
-   interval = seconds / 3600;
-   if (interval > 1) {
-     return Math.floor(interval) + ' hours ago';
-   }
-   interval = seconds / 60;
-   if (interval > 1) {
-     return Math.floor(interval) + ' minutes ago';
-   }
-   return Math.floor(seconds) + ' seconds ago';
+  if (interval > 1) {
+    return Math.floor(interval) + ' years ago';
+  }
+  interval = seconds / 2592000;
+  if (interval > 1) {
+    return Math.floor(interval) + ' months ago';
+  }
+  interval = seconds / 86400;
+  if (interval > 1) {
+    return Math.floor(interval) + ' days ago';
+  }
+  interval = seconds / 3600;
+  if (interval > 1) {
+    return Math.floor(interval) + ' hours ago';
+  }
+  interval = seconds / 60;
+  if (interval > 1) {
+    return Math.floor(interval) + ' minutes ago';
+  }
+  return Math.floor(seconds) + ' seconds ago';
 };
 
 const showDetails = function (jsonDetails) {
@@ -251,13 +250,13 @@ const showDetails = function (jsonDetails) {
   showBars();
 };
 
-const getColors = function (filter) {
+const getColors = async function (filter) {
   if (filter == 'all') {
-    getAPI('https://www.colourlovers.com/api/palettes?format=json&numResults=14&resultOffset=15', showData);
+    await getAPI('http://www.colourlovers.com/api/palettes?format=json&numResults=14&resultOffset=15', showData);
   } else if (filter == 'new') {
-    getAPI('https://www.colourlovers.com/api/palettes/new?format=json&numResults=14', showData);
+    await getAPI('http://www.colourlovers.com/api/palettes/new?format=json&numResults=14', showData);
   } else if (filter == 'popular') {
-    getAPI('https://www.colourlovers.com/api/palettes/top?format=json&numResults=14', showData);
+    await getAPI('http://www.colourlovers.com/api/palettes/top?format=json&numResults=14', showData);
   }
 };
 
@@ -268,11 +267,11 @@ const getDetails = function (id) {
 const getAPI = async function (urlEndpoint, callback) {
   // const url = `http://api.allorigins.win/get?url=${encodeURIComponent(urlEndpoint)}`;
   const url = urlEndpoint;
-  // const url = `https://crossorigin.me/${encodeURIComponent(urlEndpoint)}`;
+  console.log(url);
 
   const stringData = await getData(url);
   const json = JSON.parse(stringData.contents);
-  // console.log(json);
+  console.log(json);
   callback(json);
 };
 
