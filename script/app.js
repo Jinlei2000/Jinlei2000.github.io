@@ -253,11 +253,11 @@ const showDetails = function (jsonDetails) {
 
 const getColors = function (filter) {
   if (filter == 'all') {
-    getAPI('http://www.colourlovers.com/api/palettes?format=json&numResults=14&resultOffset=15', showData);
+    getAPI('https://www.colourlovers.com/api/palettes?format=json&numResults=14&resultOffset=15', showData);
   } else if (filter == 'new') {
-    getAPI('http://www.colourlovers.com/api/palettes/new?format=json&numResults=14', showData);
+    getAPI('https://www.colourlovers.com/api/palettes/new?format=json&numResults=14', showData);
   } else if (filter == 'popular') {
-    getAPI('http://www.colourlovers.com/api/palettes/top?format=json&numResults=14', showData);
+    getAPI('https://www.colourlovers.com/api/palettes/top?format=json&numResults=14', showData);
   }
 };
 
@@ -266,8 +266,8 @@ const getDetails = function (id) {
 };
 
 const getAPI = async function (urlEndpoint, callback) {
-  // const url = `http://api.allorigins.win/get?url=${encodeURIComponent(urlEndpoint)}`;
-  const url = urlEndpoint;
+  const url = `http://api.allorigins.win/get?url=${encodeURIComponent(urlEndpoint)}`;
+  // const url = urlEndpoint;
   // const url = `https://crossorigin.me/${encodeURIComponent(urlEndpoint)}`;
 
   const stringData = await getData(url);
