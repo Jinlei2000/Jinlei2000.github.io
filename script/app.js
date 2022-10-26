@@ -267,7 +267,8 @@ const getDetails = function (id) {
 
 const getAPI = async function (urlEndpoint, callback) {
   // const url = `http://api.allorigins.win/get?url=${encodeURIComponent(urlEndpoint)}`;
-  const url = `https://crossorigin.me/${encodeURIComponent(urlEndpoint)}`;
+  const url = urlEndpoint;
+  // const url = `https://crossorigin.me/${encodeURIComponent(urlEndpoint)}`;
 
   const stringData = await getData(url);
   const json = JSON.parse(stringData.contents);
