@@ -252,21 +252,21 @@ const showDetails = function (jsonDetails) {
 
 const getColors = async function (filter) {
   if (filter == 'all') {
-    await getAPI('http://www.colourlovers.com/api/palettes?format=json&numResults=14&resultOffset=15', showData);
+    await getAPI('https://www.colourlovers.com/api/palettes?format=json&numResults=14&resultOffset=15', showData);
   } else if (filter == 'new') {
-    await getAPI('http://www.colourlovers.com/api/palettes/new?format=json&numResults=14', showData);
+    await getAPI('https://www.colourlovers.com/api/palettes/new?format=json&numResults=14', showData);
   } else if (filter == 'popular') {
-    await getAPI('http://www.colourlovers.com/api/palettes/top?format=json&numResults=14', showData);
+    await getAPI('https://www.colourlovers.com/api/palettes/top?format=json&numResults=14', showData);
   }
 };
 
 const getDetails = function (id) {
-  getAPI(`http://www.colourlovers.com/api/palette/${id}?format=json`, showDetails);
+  getAPI(`https://www.colourlovers.com/api/palette/${id}?format=json`, showDetails);
 };
 
 const getAPI = async function (urlEndpoint, callback) {
   // const url = `http://api.allorigins.win/get?url=${encodeURIComponent(urlEndpoint)}`;
-  
+
   const url = urlEndpoint;
   console.log(url);
 
