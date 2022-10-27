@@ -1,5 +1,7 @@
 'use strict';
 
+let toggleValue = 'all';
+
 const animationHeart = function (index) {
   // console.log('Heart is clicked');
   const elementHeartIcon = document.querySelectorAll('.js-heart-icon')[index];
@@ -48,10 +50,10 @@ const listeners = function () {
   const toggles = document.querySelectorAll('.js-toggle');
   for (let toggle of toggles) {
     toggle.addEventListener('change', function () {
-      // console.log('toggle is changed');
-      const filter = toggle.id;
-      // console.log(filter);
-      getColors(filter);
+      if (toggleValue !== toggle.id) {
+        toggleValue = toggle.id;
+        getColors(toggle.id);
+      }
     });
   }
 
@@ -252,26 +254,20 @@ const showDetails = function (jsonDetails) {
 
 const getColors = async function (filter) {
   if (filter == 'all') {
-    await getAPI('https://www.colourlovers.com/api/palettes?format=json&numResults=14&resultOffset=15', showData);
+    await getAPI('https://oncolorapi.azurewebsites.net/api/pallets', showData);
   } else if (filter == 'new') {
-    await getAPI('https://www.colourlovers.com/api/palettes/new?format=json&numResults=14', showData);
+    await getAPI('https://oncolorapi.azurewebsites.net/api/pallets/new', showData);
   } else if (filter == 'popular') {
-    await getAPI('https://www.colourlovers.com/api/palettes/top?format=json&numResults=14', showData);
+    await getAPI('https://oncolorapi.azurewebsites.net/api/pallets/top', showData);
   }
 };
 
 const getDetails = function (id) {
-  getAPI(`https://www.colourlovers.com/api/palette/${id}?format=json`, showDetails);
+  getAPI(`https://oncolorapi.azurewebsites.net/api/pallet/${id}`, showDetails);
 };
 
 const getAPI = async function (urlEndpoint, callback) {
-  const url = `https://api.allorigins.win/get?url=${encodeURIComponent(urlEndpoint)}`;
-
-  // const url = urlEndpoint;
-  console.log(url);
-
-  const stringData = await getData(url);
-  const json = JSON.parse(stringData.contents);
+  const json = await getData(urlEndpoint);
   console.log(json);
   callback(json);
 };
