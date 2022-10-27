@@ -63,9 +63,8 @@ const listeners = function () {
     card.addEventListener('change', function () {
       // console.log('card is selected');
       const id = card.getAttribute('data-colorid');
-      console.log(id);
+      // console.log(id);
       popup(true);
-
       getDetails(id);
     });
   }
@@ -97,6 +96,11 @@ const popup = function (status) {
     htmlPopup.classList.add('u-hidden');
     htmlBackground.classList.remove('u-background-blur');
     htmlBody.classList.remove('u-no-scroll');
+    const colorList = document.querySelectorAll('.c-color__item');
+    for (let color of colorList) {
+      color.setAttribute('data-hex', `#ffffff`);
+    }
+    showColors();
   }
 };
 
@@ -197,8 +201,8 @@ const showData = function (jsonColors) {
 };
 
 const calculateTime = function (datetime) {
-  console.log(datetime);
-  console.log(new Date() - new Date(datetime) / 1000);
+  // console.log(datetime);
+  // console.log(new Date() - new Date(datetime) / 1000);
 
   let seconds = Math.floor((new Date() - new Date(datetime)) / 1000);
 
@@ -227,14 +231,13 @@ const calculateTime = function (datetime) {
 };
 
 const showDetails = function (jsonDetails) {
-  console.log(jsonDetails);
-  const numViews = jsonDetails[0].numViews;
-  const numVotes = jsonDetails[0].numVotes;
-  const numComments = jsonDetails[0].numComments;
-  const arrColors = jsonDetails[0].colors;
-  const title = jsonDetails[0].title;
-  const userName = jsonDetails[0].userName;
-  const datetimeCreated = jsonDetails[0].dateCreated;
+  const numViews = jsonDetails.numViews;
+  const numVotes = jsonDetails.numVotes;
+  const numComments = jsonDetails.numComments;
+  const arrColors = jsonDetails.colors;
+  const title = jsonDetails.title;
+  const userName = jsonDetails.userName;
+  const datetimeCreated = jsonDetails.dateCreated;
   // console.log(numViews, numVotes, numComments, arrColors, title, userName, datetimeCreated);
   document.querySelector('.js-popup-title').innerHTML = title;
   document.querySelector('.js-popup-username').innerHTML = userName;
@@ -245,6 +248,7 @@ const showDetails = function (jsonDetails) {
   const colorList = document.querySelectorAll('.c-color__item');
   let colorNumber = 0;
   for (let color of colorList) {
+    console.log(color);
     color.setAttribute('data-hex', `#${arrColors[colorNumber]}`);
     colorNumber++;
   }
