@@ -969,6 +969,14 @@ input::placeholder {
     animation: heart-color-out .5s ease;
 }
 
+.is-animation-slide-up {
+    animation: slideUp 0.3s ease-in;
+}
+
+.is-animation-slide-down {
+    animation: slideDown 0.3s ease-in;
+}
+
 /*------------------------------------*\
 #MEDIA
 \*------------------------------------*/
@@ -1085,4 +1093,23 @@ input::placeholder {
         stroke: var(--global-color-primary-light);
         transform: scale(0.8);
     }
+}
+
+@keyframes slideUp {
+    0% {
+        top: 100%;
+    }
+
+
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(5vh);
+    }
+
+    100% {
+        transform: translateY(100vh);
+    }
+
 }

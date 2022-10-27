@@ -66,9 +66,12 @@ const listeners = function () {
       // console.log(id);
       popup(true);
       getDetails(id);
+      listenersPopupClose();
     });
   }
+};
 
+const listenersPopupClose = function () {
   //listen to the close button on the popup and close the popup
   document.querySelector('.js-close').addEventListener('click', function () {
     // console.log('close button is clicked');
@@ -89,13 +92,21 @@ const popup = function (status) {
   const htmlBody = document.querySelector('body');
 
   if (status) {
+    htmlPopup.classList.remove('is-animation-slide-down');
+    htmlPopup.classList.add('is-animation-slide-up');
+
     htmlPopup.classList.remove('u-hidden');
     htmlBackground.classList.add('u-background-blur');
     htmlBody.classList.add('u-no-scroll');
   } else {
-    htmlPopup.classList.add('u-hidden');
+    // htmlPopup.classList.remove('is-animation-slide-up');
+    // htmlPopup.classList.add('is-animation-slide-down');
+
     htmlBackground.classList.remove('u-background-blur');
     htmlBody.classList.remove('u-no-scroll');
+    // setTimeout(function () {
+      htmlPopup.classList.add('u-hidden');
+    // }, 300);
     const colorList = document.querySelectorAll('.c-color__item');
     for (let color of colorList) {
       color.setAttribute('data-hex', `#ffffff`);
