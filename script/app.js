@@ -1,6 +1,10 @@
 'use strict';
 
 let toggleValue = 'all';
+let searchPrevious = '';
+let totalComments = 0,
+  totalVotes = 0,
+  totalViews = 0;
 
 const animationHeart = function (index) {
   // console.log('Heart is clicked');
@@ -52,7 +56,9 @@ const listeners = function () {
     toggle.addEventListener('change', function () {
       if (toggleValue !== toggle.id) {
         toggleValue = toggle.id;
-        getColors(toggle.id);
+        document.querySelectorAll('.js-toggle')[0].checked = false;
+        getPallets(toggle.id);
+        //radio button checked out
       }
     });
   }
@@ -69,6 +75,17 @@ const listeners = function () {
       listenersPopupClose();
     });
   }
+
+  //listen to the enter event on search
+  document.querySelector('.js-search').addEventListener('input', function () {
+    const search = document.querySelector('.js-search').value;
+    console.log(search);
+    if (search.length > 2 && search != searchPrevious) {
+      // wait 3 seconds before search
+        searchPrevious = search;
+        getPalletsBySearch(search);
+    }
+  });
 };
 
 const listenersPopupClose = function () {
@@ -79,11 +96,11 @@ const listenersPopupClose = function () {
   });
 
   //listen to the click event on the background and close the popup
-    if (document.querySelector('.c-popup').classList.contains('is-animation-slide-up')) {
-      document.querySelector('.js-background').addEventListener('click', function () {
-        popup(false);
-      });
-    }
+  if (document.querySelector('.c-popup').classList.contains('is-animation-slide-up')) {
+    document.querySelector('.js-background').addEventListener('click', function () {
+      popup(false);
+    });
+  }
 };
 
 const popup = function (status) {
@@ -209,8 +226,37 @@ const showData = function (jsonColors) {
   const colorCards = document.querySelector('.js-cards');
   colorCards.innerHTML = htmlString;
   // console.log(colorCards);
+  showTotal(jsonColors);
   showStars();
   listeners();
+};
+
+const showTotal = function (jsonColors) {
+  for (let pallet of jsonColors) {
+    if (pallet.numComments > totalComments) {
+      totalComments = pallet.numComments;
+    }
+    if (pallet.numVotes > totalVotes) {
+      totalVotes = pallet.numVotes;
+    }
+    if (pallet.numViews > totalViews) {
+      totalViews = pallet.numViews;
+    }
+  }
+
+  console.log(totalComments, totalVotes, totalViews);
+  totalComments = (totalComments.toString().charAt(0) * 1 + 1).toString() + '0'.repeat(totalComments.toString().length - 1);
+  totalVotes = (totalVotes.toString().charAt(0) * 1 + 1).toString() + '0'.repeat(totalVotes.toString().length - 1);
+  totalViews = (totalViews.toString().charAt(0) * 1 + 1).toString() + '0'.repeat(totalViews.toString().length - 1);
+
+  console.log(totalComments, totalVotes, totalViews);
+  document.querySelector('.js-popup-totalnumber-comment').innerText = totalComments;
+  document.querySelector('.js-popup-totalnumber-like').innerText = totalVotes;
+  document.querySelector('.js-popup-totalnumber-view').innerText = totalViews;
+
+  totalComments = 0;
+  totalVotes = 0;
+  totalViews = 0;
 };
 
 const calculateTime = function (datetime) {
@@ -269,7 +315,7 @@ const showDetails = function (jsonDetails) {
   showBars();
 };
 
-const getColors = async function (filter) {
+const getPallets = async function (filter) {
   if (filter == 'all') {
     await getAPI('https://oncolorapi.azurewebsites.net/api/pallets', showData);
   } else if (filter == 'new') {
@@ -281,6 +327,10 @@ const getColors = async function (filter) {
 
 const getDetails = function (id) {
   getAPI(`https://oncolorapi.azurewebsites.net/api/pallet/${id}`, showDetails);
+};
+
+const getPalletsBySearch = function (search) {
+  getAPI(`https://oncolorapi.azurewebsites.net/api/pallets/search/${search}`, showData);
 };
 
 const getAPI = async function (urlEndpoint, callback) {
@@ -298,7 +348,7 @@ const getData = async (urlEndpoint) => {
 const init = function () {
   console.log('App initialized');
   document.querySelector('.js-cards').innerHTML = '';
-  getColors('all');
+  getPallets('all');
 };
 
 document.addEventListener('DOMContentLoaded', init);
