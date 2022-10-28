@@ -79,11 +79,11 @@ const listenersPopupClose = function () {
   });
 
   //listen to the click event on the background and close the popup
-  if (!document.querySelector('.c-popup').classList.contains('u-hidden')) {
-    document.querySelector('.js-background').addEventListener('click', function () {
-      popup(false);
-    });
-  }
+    if (document.querySelector('.c-popup').classList.contains('is-animation-slide-up')) {
+      document.querySelector('.js-background').addEventListener('click', function () {
+        popup(false);
+      });
+    }
 };
 
 const popup = function (status) {
@@ -95,18 +95,20 @@ const popup = function (status) {
     htmlPopup.classList.remove('is-animation-slide-down');
     htmlPopup.classList.add('is-animation-slide-up');
 
-    htmlPopup.classList.remove('u-hidden');
-    htmlBackground.classList.add('u-background-blur');
-    htmlBody.classList.add('u-no-scroll');
+    setTimeout(function () {
+      htmlBackground.classList.add('u-background-blur');
+      htmlBody.classList.add('u-no-scroll');
+      htmlPopup.classList.remove('u-hidden');
+    }, 300);
   } else {
-    // htmlPopup.classList.remove('is-animation-slide-up');
-    // htmlPopup.classList.add('is-animation-slide-down');
+    htmlPopup.classList.remove('is-animation-slide-up');
+    htmlPopup.classList.add('is-animation-slide-down');
 
-    htmlBackground.classList.remove('u-background-blur');
-    htmlBody.classList.remove('u-no-scroll');
-    // setTimeout(function () {
+    setTimeout(function () {
+      htmlBackground.classList.remove('u-background-blur');
+      htmlBody.classList.remove('u-no-scroll');
       htmlPopup.classList.add('u-hidden');
-    // }, 300);
+    }, 300);
     const colorList = document.querySelectorAll('.c-color__item');
     for (let color of colorList) {
       color.setAttribute('data-hex', `#ffffff`);
@@ -259,7 +261,7 @@ const showDetails = function (jsonDetails) {
   const colorList = document.querySelectorAll('.c-color__item');
   let colorNumber = 0;
   for (let color of colorList) {
-    console.log(color);
+    // console.log(color);
     color.setAttribute('data-hex', `#${arrColors[colorNumber]}`);
     colorNumber++;
   }

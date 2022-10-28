@@ -636,8 +636,10 @@ input::placeholder {
 
 .c-grid__item {
     justify-self: center;
-    transition: all 0.25s ease-in;
+    animation: showCard 0.3s ease-out;
 }
+
+
 
 @media (min-width: 696px) {
     .c-grid {
@@ -885,6 +887,7 @@ input::placeholder {
     height: 13px;
     background-color: var(--global-color-neutral-xx-light);
     border-radius: 5px;
+    animation: barExpand .5s ease-in;
 }
 
 .c-stats__bar {
@@ -1099,8 +1102,6 @@ input::placeholder {
     0% {
         top: 100%;
     }
-
-
 }
 
 @keyframes slideDown {
@@ -1112,4 +1113,28 @@ input::placeholder {
         transform: translateY(100vh);
     }
 
+}
+
+@keyframes showCard {
+    0% {
+        transform: translateY(200px);
+    }
+
+    50% {
+        transform: translateY(100px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes barExpand {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
 }
