@@ -297,6 +297,7 @@ const getData = async (urlEndpoint) => {
 
 const init = function () {
   console.log('App initialized');
+  document.querySelector('.js-cards').innerHTML = '';
   getColors('all');
 };
 
