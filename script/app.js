@@ -56,9 +56,7 @@ const listeners = function () {
     toggle.addEventListener('change', function () {
       if (toggleValue !== toggle.id) {
         toggleValue = toggle.id;
-        document.querySelectorAll('.js-toggle')[0].checked = false;
         getPallets(toggle.id);
-        //radio button checked out
       }
     });
   }
@@ -244,12 +242,12 @@ const showTotal = function (jsonColors) {
     }
   }
 
-  console.log(totalComments, totalVotes, totalViews);
+  // console.log(totalComments, totalVotes, totalViews);
   totalComments = (totalComments.toString().charAt(0) * 1 + 1).toString() + '0'.repeat(totalComments.toString().length - 1);
   totalVotes = (totalVotes.toString().charAt(0) * 1 + 1).toString() + '0'.repeat(totalVotes.toString().length - 1);
   totalViews = (totalViews.toString().charAt(0) * 1 + 1).toString() + '0'.repeat(totalViews.toString().length - 1);
 
-  console.log(totalComments, totalVotes, totalViews);
+  // console.log(totalComments, totalVotes, totalViews);
   document.querySelector('.js-popup-totalnumber-comment').innerText = totalComments;
   document.querySelector('.js-popup-totalnumber-like').innerText = totalVotes;
   document.querySelector('.js-popup-totalnumber-view').innerText = totalViews;
