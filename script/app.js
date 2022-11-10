@@ -345,8 +345,10 @@ const getData = async (urlEndpoint) => {
 
 const init = function () {
   console.log('App initialized');
-  document.querySelector('.js-cards').innerHTML = '';
-  getPallets('all');
+  // document.querySelector('.js-cards').innerHTML = '';
+  // getPallets('all');
+  getAPI('https://oncolorapi.azurewebsites.net/api/pallets', function (jsonColors) {
+  });
 };
 
 document.addEventListener('DOMContentLoaded', init);
