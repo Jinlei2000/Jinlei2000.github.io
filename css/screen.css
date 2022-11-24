@@ -352,7 +352,7 @@ input::placeholder {
 
 
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
     .c-app {
         padding: var(--global-whitespace) 0 0;
     }
@@ -435,7 +435,7 @@ input::placeholder {
     fill: var(--global-color-primary);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
     .c-logo {
         font-size: 1.8125rem;
     }
@@ -458,7 +458,7 @@ input::placeholder {
     border: none;
     padding: 0;
     width: 0;
-    height: 24px;
+    height: 1.5rem;
     z-index: 10;
     transition: width 0.4s ease-in;
     font-size: 0.75rem;
@@ -468,12 +468,12 @@ input::placeholder {
 }
 
 .c-search__btn {
-    line-height: 24px;
+    line-height: 1.5rem;
     text-align: center;
     color: white;
     text-decoration: none;
-    height: 24px;
-    width: 24px;
+    height: 1.5rem;
+    width: 1.5rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -496,12 +496,12 @@ input::placeholder {
 .c-search:focus, .c-search:active {
     width: 15vh;
     box-shadow: 0 0 1px 1px var(--global-color-primary-light);
-    border-radius: 50px;
-    padding-left: 4px;
-    padding-right: 24px;
+    border-radius: 3.125rem;
+    padding-left: 0.25rem;
+    padding-right: 1.5rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
     .c-search {
         font-size: 0.875rem;
         /* width: var(--global-whitespace-lg); */
@@ -545,7 +545,7 @@ input::placeholder {
     fill: var(--global-color-neutral-dark);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
     .c-icon-search {
         width: 1.5rem;
         height: 1.5rem;
@@ -610,7 +610,7 @@ input::placeholder {
     padding: 0.0625rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
     .c-toggle {
         margin-bottom: 2rem;
     }
@@ -641,8 +641,7 @@ input::placeholder {
 }
 
 
-
-@media (min-width: 696px) {
+@media (min-width: 43.5rem) {
     .c-grid {
         gap: 32px 40px;
         grid-template-columns: repeat(2, 18.5rem);
@@ -656,6 +655,7 @@ input::placeholder {
 */
 
 .c-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -690,8 +690,9 @@ input::placeholder {
 }
 
 .c-card__heart {
-    margin-left: 12.0625rem;
-    margin-top: 0.75rem;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.75rem;
 }
 
 .c-card__heart input:checked+.c-label__heart {
@@ -711,8 +712,6 @@ input::placeholder {
 }
 
 .c-card__heart .c-label__heart {
-    position: absolute;
-    z-index: 10;
     height: 2.5rem;
     width: 2.5rem;
     border-radius: 50%;
@@ -724,11 +723,14 @@ input::placeholder {
     box-shadow: var(--boxShadow-heart, none);
 }
 
+.c-card__body {
+    padding: 0.25rem;
+}
+
 .c-card__image {
     border-radius: 0.6875rem;
     height: 10.625rem;
     width: 18rem;
-    margin-top: -0.5rem;
 }
 
 .c-card__subinfo {
@@ -761,7 +763,7 @@ input::placeholder {
     gap: calc(var(--global-whitespace-xs)/2);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
     .c-card {
         height: 16rem;
     }
@@ -816,7 +818,7 @@ input::placeholder {
     font-size: 0.75rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
     .c-color__item {
         height: 3rem;
     }
@@ -839,7 +841,7 @@ input::placeholder {
     Detail component
 */
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
     .c-detail {
         padding-left: var(--global-whitespace-xl);
         padding-right: var(--global-whitespace-xl);
@@ -910,7 +912,7 @@ input::placeholder {
     width: 30%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
     .c-stats__item {
         height: 3.625rem;
     }
@@ -1094,6 +1096,7 @@ input::placeholder {
         fill: var(--global-color-neutral-x-light);
         transform: scale(1.5);
     }
+
     to {
         fill: var(--global-color-primary);
         transform: scale(1);
@@ -1105,6 +1108,7 @@ input::placeholder {
         stroke: var(--global-color-primary);
         transform: scale(1);
     }
+
     to {
         stroke: var(--global-color-primary-light);
         transform: scale(0.8);
