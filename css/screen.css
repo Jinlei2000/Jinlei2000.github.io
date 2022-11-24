@@ -1094,7 +1094,6 @@ input::placeholder {
         fill: var(--global-color-neutral-x-light);
         transform: scale(1.5);
     }
-
     to {
         fill: var(--global-color-primary);
         transform: scale(1);
@@ -1106,7 +1105,6 @@ input::placeholder {
         stroke: var(--global-color-primary);
         transform: scale(1);
     }
-
     to {
         stroke: var(--global-color-primary-light);
         transform: scale(0.8);

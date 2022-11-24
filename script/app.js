@@ -196,10 +196,10 @@ const showData = function (jsonColors) {
     htmlString += `<div class="c-grid__item">
                 <article class="c-card">
                   <input class="o-hide-accessible js-card" type="checkbox" id="card${inputNumber}" data-colorid="${id}" />
-                  <label class="c-label__card" for="card${inputNumber}"></label>
+                  <label class="c-label__card" for="card${inputNumber}" aria-label="card"></label>
                   <div class="c-card__heart">
                     <input class="o-hide-accessible js-heart-input" type="checkbox" id="heart${inputNumber}"/>
-                    <label class="c-label__heart" for="heart${inputNumber}">
+                    <label class="c-label__heart" for="heart${inputNumber}" aria-label="like">
                       <svg class="c-icon c-icon-lg c-icon-outlined js-heart-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
                         <path d="M0 0h24v24H0V0z" fill="none" />
                         <path
