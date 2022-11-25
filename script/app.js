@@ -6,6 +6,8 @@ let totalComments = 0,
   totalVotes = 0,
   totalViews = 0;
 
+let index = null;
+
 const animationHeart = function (index) {
   // console.log('Heart is clicked');
   const elementHeartIcon = document.querySelectorAll('.js-heart-icon')[index];
@@ -68,7 +70,7 @@ const listeners = function () {
       // console.log('card is selected');
       const id = card.getAttribute('data-colorid');
       // console.log(id);
-      popup(true);
+      popup(true, card.id);
       getDetails(id);
       listenersPopupClose();
     });
@@ -80,8 +82,8 @@ const listeners = function () {
     console.log(search);
     if (search.length > 2 && search != searchPrevious) {
       // wait 3 seconds before search
-        searchPrevious = search;
-        getPalletsBySearch(search);
+      searchPrevious = search;
+      getPalletsBySearch(search);
     }
   });
 };
@@ -101,12 +103,21 @@ const listenersPopupClose = function () {
   }
 };
 
-const popup = function (status) {
+const popup = function (status, cardId) {
   const htmlPopup = document.querySelector('.c-popup');
   const htmlBackground = document.querySelector('.js-background');
   const htmlBody = document.querySelector('body');
 
   if (status) {
+    index = cardId.toString().match(/\d+/g)[0] - 1;
+    console.log(index);
+    // focus on the popup close button for accessibility and disable the background tabbing
+    document.querySelectorAll('input').forEach((input) => {
+      input.tabIndex = -1;
+    });
+
+    document.querySelector('.js-close').tabIndex = 1;
+
     htmlPopup.classList.remove('is-animation-slide-down');
     htmlPopup.classList.add('is-animation-slide-up');
 
@@ -116,6 +127,14 @@ const popup = function (status) {
       htmlPopup.classList.remove('u-hidden');
     }, 300);
   } else {
+    // focus back on the previous element
+    document.querySelectorAll('.js-card').forEach((input) => {
+      input.tabIndex = 1;
+    });
+
+    document.querySelectorAll('.js-card')[index].focus();
+
+    document.querySelectorAll('.js-card');
     htmlPopup.classList.remove('is-animation-slide-up');
     htmlPopup.classList.add('is-animation-slide-down');
 
