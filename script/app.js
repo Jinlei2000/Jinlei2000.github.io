@@ -48,6 +48,8 @@ const listeners = function () {
       // console.log('addEventListener change');
       //get number out string (example: 'heart1' -> 1)
       let index = heart.id.toString().match(/\d+/g)[0] - 1;
+      // focus on card where the heart is clicked
+      document.querySelectorAll('.js-card')[index].focus();
       animationHeart(index);
     });
   }
@@ -108,7 +110,6 @@ const popup = function (status, cardId) {
   const htmlPopup = document.querySelector('.c-popup');
   const htmlBackground = document.querySelector('.js-background');
   const htmlBody = document.querySelector('body');
-  
   if (status) {
     // get number out string (example: 'card1' -> 1)
     index = cardId.toString().match(/\d+/g)[0] - 1;
@@ -129,13 +130,12 @@ const popup = function (status, cardId) {
     }, 300);
   } else {
     // enable the background tabbing
-    document.querySelectorAll('.js-card').forEach((input) => {
-      input.tabIndex = 1;
+    document.querySelectorAll('input').forEach((input) => {
+      input.tabIndex = 0;
     });
     // focus back on the previous element
     document.querySelectorAll('.js-card')[index].focus();
 
-    document.querySelectorAll('.js-card');
     htmlPopup.classList.remove('is-animation-slide-up');
     htmlPopup.classList.add('is-animation-slide-down');
 
