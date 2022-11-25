@@ -333,7 +333,7 @@ const getPalletsBySearch = function (search) {
 
 const getAPI = async function (urlEndpoint, callback) {
   const json = await getData(urlEndpoint);
-  console.log(json);
+  // console.log(json);
   callback(json);
 };
 
