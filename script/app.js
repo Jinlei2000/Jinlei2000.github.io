@@ -69,8 +69,9 @@ const listeners = function () {
     card.addEventListener('change', function () {
       // console.log('card is selected');
       const id = card.getAttribute('data-colorid');
-      // console.log(id);
       popup(true, card.id);
+      // focus on the popup
+      card.focus();
       getDetails(id);
       listenersPopupClose();
     });
@@ -107,11 +108,11 @@ const popup = function (status, cardId) {
   const htmlPopup = document.querySelector('.c-popup');
   const htmlBackground = document.querySelector('.js-background');
   const htmlBody = document.querySelector('body');
-
+  
   if (status) {
+    // get number out string (example: 'card1' -> 1)
     index = cardId.toString().match(/\d+/g)[0] - 1;
-    console.log(index);
-    // focus on the popup close button for accessibility and disable the background tabbing
+    // disable the background tabbing when popup is up
     document.querySelectorAll('input').forEach((input) => {
       input.tabIndex = -1;
     });
@@ -127,11 +128,11 @@ const popup = function (status, cardId) {
       htmlPopup.classList.remove('u-hidden');
     }, 300);
   } else {
-    // focus back on the previous element
+    // enable the background tabbing
     document.querySelectorAll('.js-card').forEach((input) => {
       input.tabIndex = 1;
     });
-
+    // focus back on the previous element
     document.querySelectorAll('.js-card')[index].focus();
 
     document.querySelectorAll('.js-card');

@@ -662,11 +662,6 @@ input::placeholder {
     border-radius: 0.9375rem;
 }
 
-.c-card input:checked+.c-label__card {
-    --borderColor-card: var(--global-color-primary);
-    --boxShadow-card: var(--global-input-focus-boxShadow);
-}
-
 .c-card input:hover+.c-label__card {
     cursor: pointer;
     --borderColor-card: var(--global-color-primary);
@@ -677,7 +672,6 @@ input::placeholder {
 .c-card input:focus+.c-label__card, .c-card input:active+.c-label__card {
     --borderColor-card: var(--global-color-primary);
     --boxShadow-card: var(--global-input-focus-boxShadow);
-
 }
 
 .c-card .c-label__card {
@@ -693,11 +687,6 @@ input::placeholder {
     position: absolute;
     right: 0.75rem;
     top: 0.75rem;
-}
-
-.c-card__heart input:checked+.c-label__heart {
-    --borderColor-heart: var(--global-color-primary);
-    --boxShadow-heart: var(--global-input-focus-boxShadow);
 }
 
 .c-card__heart input:hover+.c-label__heart {
