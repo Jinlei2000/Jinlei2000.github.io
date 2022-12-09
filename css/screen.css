@@ -666,7 +666,6 @@ input::placeholder {
     cursor: pointer;
     --borderColor-card: var(--global-color-primary);
     --boxShadow-card: var(--global-input-focus-boxShadow);
-
 }
 
 .c-card input:focus+.c-label__card, .c-card input:active+.c-label__card {

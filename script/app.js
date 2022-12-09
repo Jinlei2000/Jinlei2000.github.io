@@ -129,12 +129,12 @@ const popup = function (status, cardId) {
       htmlPopup.classList.remove('u-hidden');
     }, 300);
   } else {
-    // enable the background tabbing
+    // enable the background tabbing when popup is up
     document.querySelectorAll('input').forEach((input) => {
       input.tabIndex = 0;
     });
-    // focus back on the previous element
-    document.querySelectorAll('.js-card')[index].focus();
+
+    document.querySelector('.js-close').tabIndex = -1;
 
     htmlPopup.classList.remove('is-animation-slide-up');
     htmlPopup.classList.add('is-animation-slide-down');
